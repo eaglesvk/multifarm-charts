@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Grid from '@mui/material/Grid';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
+import AssetApr from './charts/AssetApr'
+import AssetTvl from './charts/AssetTvl'
+import Card from '@mui/material/Card';
+
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App">
+        <ThemeProvider theme={darkTheme}>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <Card variant="outlined">
+                <AssetApr />
+              </Card>
+            </Grid>
+            <Grid item xs={6}>
+              <Card variant="outlined">
+                <AssetTvl />
+              </Card>
+            </Grid>
+          </Grid>
+      </ThemeProvider>
     </div>
   );
 }

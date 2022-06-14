@@ -1,3 +1,8 @@
+body {
+  background-color: #414477;
+  color: rgb(75, 192, 192) !important;
+}
+
 .App {
   text-align: center;
 }
